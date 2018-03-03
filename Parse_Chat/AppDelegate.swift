@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
+            configuration.applicationId = "CodePath-Parse"
+            configuration.server = "http://45.79.67.127:1337/parse"
+        }))
+        
+        if let currentUser = PFUser.current(){
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let chatViewController = storyboard.instantiateViewController(withIdentifier: "s")
+            window?.rootViewController = chatViewController
+        }
         return true
     }
 
@@ -40,13 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
-            configuration.applicationId = "CodePath-Parse"
-            configuration.server = "http://45.79.67.127:1337/parse"
-        }))
     }
 
 }
