@@ -116,6 +116,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW4-jp-OLg">
                                                     <rect key="frame" x="15" y="48" width="337" height="21"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -132,6 +133,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chatLabel" destination="fW4-jp-OLg" id="Jb9-ro-hwx"/>
+                                            <outlet property="chatView" destination="Lc7-xO-6IZ" id="fdW-S2-kKx"/>
+                                            <outlet property="usernameHeight" destination="yjb-PL-jLu" id="OhB-WO-XYm"/>
                                             <outlet property="usernameLabel" destination="lvU-wO-o6i" id="6zn-YD-g1i"/>
                                         </connections>
                                     </tableViewCell>

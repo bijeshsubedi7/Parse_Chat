@@ -12,8 +12,13 @@ import UIKit
 class ChatCell: UITableViewCell {
     
     
+    @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var chatLabel: UILabel!
+    @IBOutlet weak var usernameHeight: NSLayoutConstraint!
+    
+    var show = true
+    
     var message: PFObject!{
         didSet{
             if ((message["text"]) != nil){
@@ -31,6 +36,19 @@ class ChatCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        chatView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.toggleUser))
+        chatView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func toggleUser(){
+        if (!show){
+            usernameHeight.constant = 30
+            show = true
+        } else {
+            usernameHeight.constant = 0
+            show = false
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
